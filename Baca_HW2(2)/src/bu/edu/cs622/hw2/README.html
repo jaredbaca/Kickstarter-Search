@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Kickstarter_Search_0"></a>Kickstarter Search</h1>
+<h5 class="code-line" data-line-start=1 data-line-end=2><a id="Author_Jared_Baca_1"></a>Author: Jared Baca</h5>
+<p class="has-line-data" data-line-start="3" data-line-end="4">This application reads the contents of 3 JSON files containing information on various Kickstarter projects. It then writes the contents of those files to a single, combined file. It then performs a search of 4 predefined keywords and displays the name, funding amount, and category of any Kickstarter project containing those keywords. It also keeps a search history of all keywords as well as the number of times they’ve been searched. After performing the search it prints the search results and the search history.</p>
+<h2 class="code-line" data-line-start=5 data-line-end=6><a id="Data_Members_5"></a>Data Members</h2>
+<h3 class="code-line" data-line-start=7 data-line-end=8><a id="history_7"></a>history</h3>
+<p class="has-line-data" data-line-start="9" data-line-end="10">A HashMap whose keys are the search terms entered and values are the number of times each word has been searched.</p>
+<h3 class="code-line" data-line-start=11 data-line-end=12><a id="searchResults_11"></a>searchResults</h3>
+<p class="has-line-data" data-line-start="13" data-line-end="14">An ArrayList of HashMaps, each of which is a single JSON entry (Kickstarter project).</p>
+<h2 class="code-line" data-line-start=15 data-line-end=16><a id="Methods_15"></a>Methods</h2>
+<h3 class="code-line" data-line-start=17 data-line-end=18><a id="readFile_17"></a>readFile</h3>
+<p class="has-line-data" data-line-start="18" data-line-end="19">Takes a Java File object as an argument and throws IOException. It uses a BufferedReader to add each entry of the JSON file to an ArrayList of Strings.</p>
+<h3 class="code-line" data-line-start=20 data-line-end=21><a id="writeFile_20"></a>writeFile</h3>
+<p class="has-line-data" data-line-start="21" data-line-end="22">Take an ArrayList of Strings and a Java File object (the destination) as arguments. Uses a BufferedWriter to append the contents of the ArrayList to a new file in the directory.</p>
+<h3 class="code-line" data-line-start=23 data-line-end=24><a id="search_23"></a>search</h3>
+<p class="has-line-data" data-line-start="24" data-line-end="25">Takes a String (search term), File object (the combined JSON file output by writeFile) and throws IOException. This method reads each line of the combined JSON file and checks for the given search term. If found, it converts the JSON string to a HashMap using Gson, and pushes that HashMap to the searchResults ArrayList. It also adds the search term to the history HashMap and/or increments the count.</p>
+<h3 class="code-line" data-line-start=26 data-line-end=27><a id="printHistory_26"></a>printHistory</h3>
+<p class="has-line-data" data-line-start="27" data-line-end="28">Prints the contents of the search history to the console in for the format “[search_term], [times searched] times”</p>
+<h3 class="code-line" data-line-start=29 data-line-end=30><a id="printResults_29"></a>printResults</h3>
+<p class="has-line-data" data-line-start="30" data-line-end="31">Prints the contents of the searchResults ArrayList to the console. Columns include the name, funding amount, and category of any projects found to contain the keywords.</p>
+<h3 class="code-line" data-line-start=32 data-line-end=33><a id="main_32"></a>main</h3>
+<p class="has-line-data" data-line-start="33" data-line-end="34">Main method performs the search. Creates 4 named constants for the search terms, imports the JSON files from the project’s directory, and creates the combined JSON file. It then performs the 4 searches, prints the results, and prints the search history.</p>
+</body></html>
